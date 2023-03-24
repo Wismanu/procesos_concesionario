@@ -1,21 +1,12 @@
 package com.procesos.concesionario.services;
 
 import com.procesos.concesionario.models.User;
-import com.procesos.concesionario.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Optional;
+import java.util.List;
 
-@Service
-public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-
-    public Optional<User> getUserById(@PathVariable(name = "id")){
-        return userRepository.findById(id);
-    }
-
-
+public interface UserService {
+    User getUserById(Long id);
+    List<User> allUsers();
+    User createUser(User user);
+    User updateUser(Long id, User user);
 }
